@@ -11,9 +11,9 @@
 
 
     <ul id="tabs">
- <!--     <li><a href="Welcome">Create User</a> </li> -->
-    <!--   <li><a href="userlist">User list</a></li>
-       -->
+<!--      <li><a href="Welcome">Create User</a> </li> 
+  <li><a href="userlist">User list</a></li> -->
+       
     </ul>
     <div id="User list"  class="tabcontent" >
   <div class="content" >
@@ -28,7 +28,7 @@
 	<th>Password</th>
 	<th>Operation</th>
 </tr>
-<s:iterator value="listUser" var="user">
+<s:iterator value="listUser" var="us">
 	<tr><td><s:property value="id"/></td>
 		<td><s:property value="first"/> </td>
 		<td> <s:property value="last"/></td>

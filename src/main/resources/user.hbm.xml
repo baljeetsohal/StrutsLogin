@@ -5,7 +5,7 @@
     <hibernate-mapping>
     <class name="Model.user" table="user">
     
-    <id name="id" type="int" column="idUser">
+    <id name="id" column="idUser">
     <generator class="increment"></generator>
     </id>
     

@@ -99,23 +99,23 @@
  <div class="content" >
            <s:form action="register" validate="true">
            
-           <s:textfield label="First Name" name="user.first" required="true" />
+           <s:textfield label="First Name" name="us.first" required="true" />
  
-             <s:textfield label="Last Name" name="user.last"  />
-           <s:select cssStyle="width:155px" list="{'IT','BPO','other'}"  name="user.dept" label="Department"/>
+             <s:textfield label="Last Name" name="us.last"  />
+           <s:select cssStyle="width:155px" list="{'IT','BPO','other'}"  name="us.dept" label="Department"/>
          
         <s:set name="isflag" value="flag"/>
          <s:if test="%{#isflag==false}">
-	 <s:textfield id="email" label="Email"  name="user.email" maxlength="20"  required="true"/>
+	 <s:textfield id="email" label="Email"  name="us.email" maxlength="20"  required="true"/>
 	 
 </s:if>
 <s:else>
-    <s:hidden name="user.id"></s:hidden>
-   <s:textfield id="email" label="Email" name="user.email" maxlength="20"  disabled="true" required="true"/>
+    <s:hidden name="us.id"></s:hidden>
+   <s:textfield id="email" label="Email" name="us.email" maxlength="20"  disabled="true" required="true"/>
     
 </s:else>
           
-           <s:password label="Password" name="user.pass" maxlength="10"  required="true"/>    
+           <s:password label="Password" name="us.pass" maxlength="10"  required="true"/>    
            <s:submit value="register"></s:submit>
            </s:form>
        </div> 

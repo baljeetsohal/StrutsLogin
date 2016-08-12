@@ -20,7 +20,7 @@
 		</action>
 		<action name="userlist" class="com.mkyong.user.action.WelcomeUserAction" method="userlist">
 			<result name="success">pages/userList.jsp</result>
-			<result name="input">pages/userList.jsp</result>
+		<!-- 	<result name="input">pages/userList.jsp</result> -->
 		</action>
 		<action name="delete" class="com.mkyong.user.action.WelcomeUserAction" method="delete">
 		<result name="success">pages/userList.jsp </result>		

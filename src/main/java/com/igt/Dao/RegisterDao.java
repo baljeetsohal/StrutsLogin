@@ -42,7 +42,7 @@ public int saveintodb()
 	    //creating transaction object  
 	    Transaction t=session.beginTransaction(); 
    
-       user u=w.getUser();
+       user u=w.getUs();
 	 int status=0;
 		if(u.getId()!=0)
 		{
@@ -59,25 +59,25 @@ public int saveintodb()
 		}
 		else
 		{    
-		 Long result;
+			long result=0;
 			String SQL_QUERY = "SELECT COUNT(*) FROM user where email=:email";
 			Query query = session.createQuery(SQL_QUERY);
-			 query.setParameter("email",u.getEmail());
-			  for(Iterator it=query.iterate();it.hasNext();)
+			 query.setString("email",u.getEmail());
+			/*  for(Iterator it=query.iterate();it.hasNext();)
 			  {
-			    result= (Long) it.next();
-		      }
+			   result=(Long)it.next();	      }*/
+			 result = (Long)query.uniqueResult();
 			  session.getTransaction().commit();
 			  session.close();
-			  session=factory.openSession();  
-			     
-			    //creating transaction object  
-			  t=session.beginTransaction(); 
-			if(result.intValue()==0)
-			{ 
-				Query query1 = session.createQuery("insert into user (first,last,dept,email,pass) select u.getFirst(),u.getLast(),u.getDept(),u.getEmail(),u.getPass() from user u");
-		status = query1.executeUpdate();
-		 session.getTransaction().commit();
+			  
+			if(result==0)
+			{  session=factory.openSession(); 
+		    //creating transaction object  
+		  t=session.beginTransaction();
+		/*	//	Query query1 = session.createQuery("insert into user(first,last,dept,email,pass) select u.getFirst(),u.getLast(),u.getDept(),u.getEmail(),u.getPass() from user u");
+		status = query1.executeUpdate();*/
+		  session.save(u);
+		 t.commit();
 		  session.close();
 		
 			}	

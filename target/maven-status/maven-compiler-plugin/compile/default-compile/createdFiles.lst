@@ -1,3 +1,6 @@
+com\igt\Dao\RegisterDao.class
+com\mkyong\user\action\WelcomeUserAction.class
+com\mkyong\user\action\Logincontroller.class
 com\igt\Dao\DelRecordsDao.class
 com\igt\Dao\FetchRecordsDao.class
 Model\user.class

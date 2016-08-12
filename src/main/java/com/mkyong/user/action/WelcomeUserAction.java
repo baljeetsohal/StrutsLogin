@@ -11,33 +11,17 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import Model.user;
 
-public class WelcomeUserAction extends ActionSupport  {
+public class WelcomeUserAction extends ActionSupport 
+{
 private static final long serialVersionUID = 1L;
+private List<user> listUser;
+private FetchRecordsDao fdao;
+private user us;
+public boolean flag=false;
+private int id;
 	
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	private int id;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public FetchRecordsDao getFdao() {
-		return fdao;
-	}
-	public void setFdao(FetchRecordsDao fdao) {
-		this.fdao = fdao;
-	}
 
-
-	private List<user> listUser;
-	private FetchRecordsDao fdao;
-	private user user;
-	private user s;
-	public boolean flag=false;
 //@RequiredStringValidator(message="first name is mandatory")
 /*	public void setFirst(String first) {
 		this.first = first;
@@ -76,21 +60,56 @@ private static final long serialVersionUID = 1L;
 //public String getPass() {
 //	return pass;
 //}
+	public FetchRecordsDao getFdao() {
+		return fdao;
+	}
+	public void setFdao(FetchRecordsDao fdao) {
+		this.fdao = fdao;
+	}
 
+
+	public user getUs() {
+		return us;
+	}
+	public void setUs(user us) {
+		this.us = us;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 public boolean isFlag() {
 		return flag;
 	}
 	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
+	public List<user> getListUser() {
+		return listUser;
+	}
+	public void setListUser(List<user> listUser) {
+		this.listUser = listUser;
+	} 
+
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 public String userlist()
 {  
-	 fdao=new FetchRecordsDao();
+	fdao=new FetchRecordsDao();
 	listUser = fdao.execute();
 	return "success";
 }
+
+
+
+
    public String register()
-   {    s=getUser();
+   {    
 	 
 	  RegisterDao dao=new RegisterDao(this); 
 	  dao.saveintodb();
@@ -110,25 +129,13 @@ public String userlist()
    {
 	   flag=true;
 	   fdao=new FetchRecordsDao();
-		setUser(fdao.update(getId()));
+		setUs(fdao.update(getId()));
 		
 		return "success";
 		
    }
  
-public List<user> getListUser() {
-	return listUser;
-}
-public void setListUser(List<user> listUser) {
-	this.listUser = listUser;
-}
-public user getUser() {
-	return user;
-}
-public void setUser(user user) {
-	this.user = user;
-}
 
-   
+ 
    
 }
