@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<BUTTON name="hello">hello</BUTTON>
+
 welcome
 </body>
 </html>
